@@ -19,7 +19,7 @@ pipeline {
     }
     stage ('Apply resources') {
       when {
-        branc 'master'
+        branch 'master'
       }
       steps {
         of apply -k samples
