@@ -23,7 +23,7 @@ pipeline {
 			build job: 'apply/master'
 		}
 		success {
-			sh 'echo "no drift found > nodrift.txt"'
+			sh 'echo "no drift found" > nodrift.txt'
 			archiveArtifacts artifacts: '*.txt'
 		}
 	}
