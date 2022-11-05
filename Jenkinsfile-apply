@@ -1,6 +1,6 @@
 pipeline {
   triggers {
-    pollSCM('*/5 * * * *') 
+    pollSCM('*/20 * * * *') 
   }
   options {
     disableConcurrentBuilds()
