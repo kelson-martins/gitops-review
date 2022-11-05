@@ -19,17 +19,17 @@ pipeline {
     }
     stage ('Apply resources') {
       when {
-        branch 'master'
+        branch master
       }
       steps {
-        sh 'oc apply -k samples'
+        sh 'oc apply -k .'
         // ignore delete errors caused by templates deleted by previous runs
         sh 'oc delete -f delete --wait || true'
       }
     }
     stage ('Verify deleted templates') {
       when {
-        branch 'master' 
+        master
       }
       steps {
         sh '! oc get templates -n openshift | grep -q rails'
