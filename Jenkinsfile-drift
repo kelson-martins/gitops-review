@@ -9,6 +9,7 @@ pipeline {
 		stage('check drift') {
 		  steps {
 			sh '''
+			ls && cat samples/*
 			oc diff -k samples | tee drift.txt
  			cat drift.txt
 			! test -s drift.txt
