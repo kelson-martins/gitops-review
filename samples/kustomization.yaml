@@ -1,2 +1,3 @@
 resources:
 - samples.yaml
+- cm.yaml
