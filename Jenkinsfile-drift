@@ -19,7 +19,7 @@ pipeline {
 	}
         post {
 		failure {
-			archiveArtifactis artifacts: '*.txt'
+			archiveArtifacts artifacts: '*.txt'
 			build job: 'apply/master'
 		}
 	}
