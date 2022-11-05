@@ -1,0 +1,24 @@
+diff -u -N /tmp/LIVE-783937125/v1.ConfigMap.default.drift /tmp/MERGED-546927232/v1.ConfigMap.default.drift
+--- /tmp/LIVE-783937125/v1.ConfigMap.default.drift	2022-11-05 12:02:17.386627988 -0400
++++ /tmp/MERGED-546927232/v1.ConfigMap.default.drift	2022-11-05 12:02:17.410628641 -0400
+@@ -0,0 +1,20 @@
++apiVersion: v1
++data:
++  drift: drift
++kind: ConfigMap
++metadata:
++  creationTimestamp: "2022-11-05T16:02:17Z"
++  managedFields:
++  - apiVersion: v1
++    fieldsType: FieldsV1
++    fieldsV1:
++      f:data:
++        .: {}
++        f:drift: {}
++    manager: kubectl-client-side-apply
++    operation: Update
++    time: "2022-11-05T16:02:17Z"
++  name: drift
++  namespace: default
++  selfLink: /api/v1/namespaces/default/configmaps/drift
++  uid: 7b8c309c-7285-4dcf-a967-de4f8e640725

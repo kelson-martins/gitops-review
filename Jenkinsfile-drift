@@ -10,6 +10,7 @@ pipeline {
 		  steps {
 			sh '''
 			oc diff -k samples | tee drift.txt
+ 			cat drift.txt
 			! test -s drift.txt
 			'''
 		  }
