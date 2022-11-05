@@ -17,4 +17,10 @@ pipeline {
 		  }
 		}
 	}
+        post {
+		failure {
+			archiveArtifactis artifacts: '*.txt'
+			build job: 'apply/master'
+		}
+	}
 }
