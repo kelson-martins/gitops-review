@@ -1,6 +1,6 @@
 pipeline {
   triggers {
-    pollSCM('*/10 * * * *') 
+    //FIX-ME
   }
   options {
     disableConcurrentBuilds()
@@ -19,17 +19,17 @@ pipeline {
     }
     stage ('Apply resources') {
       when {
-        branch master
+        //FIX-ME
       }
       steps {
-        sh 'oc apply -k .'
+        //FIX-ME
         // ignore delete errors caused by templates deleted by previous runs
         sh 'oc delete -f delete --wait || true'
       }
     }
     stage ('Verify deleted templates') {
       when {
-        branch master
+        //FIX-ME
       }
       steps {
         sh '! oc get templates -n openshift | grep -q rails'
