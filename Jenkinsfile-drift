@@ -12,7 +12,7 @@ pipeline {
 		stage('drift check') {
 			steps {
 				sh'''
-				oc diff -k /samples | tee diff.txt
+				oc diff -k samples/ | tee diff.txt
 				! test -s diff.txt
 				'''
 			}
