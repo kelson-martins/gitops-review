@@ -20,12 +20,14 @@ pipeline {
 	}
 	post {
 		success {
-			sh'echo "no drift found > /tmp/no-drift.txt"'
+			sh'''
+                        echo "no drift found" > no-drift.txt
+                        '''
 			archiveArtifacts artifacts: '*.txt'
 		}
 
 		failure {
-			archiveArtifacts artifacts: '*.txt'
+			archiveArtifacts artifacts: 'no-drift.txt'
 			build job: 'apply'
 		}
 	}
