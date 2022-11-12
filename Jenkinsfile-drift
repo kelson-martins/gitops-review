@@ -1,0 +1,33 @@
+pipeline {
+	
+	triggers {
+		pollSCM('*/2 * * * *')
+	}
+	
+	agent {
+		label 'any'
+	}
+
+	stages {
+		stage('drift check') {
+			steps {
+				sh'''
+				oc diff /samples | tee diff.txt
+				! test -s diff.txt
+				'''
+			}
+		}
+	}
+	post {
+		success {
+			sh'echo "no drift found > /tmp/no-drift.txt"'
+			archiveArtifacts artifacts: '*.txt'
+		}
+
+		failure {
+			archiveArtifacts artifacts: '*.txt'
+			build job 'apply'
+		}
+	}
+	
+}
