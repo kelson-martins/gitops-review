@@ -28,7 +28,7 @@ pipeline {
 
 		failure {
 			archiveArtifacts artifacts: 'no-drift.txt'
-			build job: 'apply'
+			build job: 'apply/main'
 		}
 	}
 	
