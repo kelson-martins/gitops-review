@@ -5,5 +5,11 @@ pipeline {
 	agent {
 		label 'nodejs'
 	}
-	stages{}
+	stages{
+		stage('check drift'){
+
+		sh 'echo "test"'
+		}
+
+	}
 }
