@@ -9,9 +9,22 @@ pipeline {
 		stage('check drift'){
 			steps {
 
-				sh 'echo "test"'
+				sh 'oc diff -k samples > diff.txt'
+				sh '''
+				    ! test -s diff.txt 
+				'''
 			}
 		}
+                
 
+	}
+	post {
+		success {
+			archiveArtifacts artifacts: '*.txt'
+		}
+                failure {
+			build job: 'apply/main'
+			archiveArtifacts artifacts: '*.txt'
+		}
 	}
 }
