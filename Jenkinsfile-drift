@@ -2,7 +2,7 @@ pipeline {
 	triggers {
 		cron '*/2 * * * *'
 	}
-	node {
+	agent {
 		label 'nodejs'
 	}
 }
