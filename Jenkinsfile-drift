@@ -7,8 +7,10 @@ pipeline {
 	}
 	stages{
 		stage('check drift'){
+			steps {
 
-		sh 'echo "test"'
+				sh 'echo "test"'
+			}
 		}
 
 	}
